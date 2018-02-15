@@ -17,8 +17,8 @@ set -e \n\
 while true; do\n\
   az storage blob upload-batch --source $DATA_FOLDER --destination $DESTINATION \n\
   sleep $(( 60*60*INTERVAL_IN_HOURS ))\n\
-done' > s3.sh && chmod +x s3.sh
+done' > az.sh && chmod +x az.sh
 
-RUN echo 's3: /opt/s3.sh' >> Procfile
+RUN echo 'az: /opt/az.sh' >> Procfile
 
 CMD [ "forego", "start" ]
